@@ -1,12 +1,10 @@
-FROM node:lts
+FROM node:23-alpine3.20
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package.json .
 
-RUN rm -rf node_modules package-lock.json
-RUN npm install -g npm@latest
-RUN npm install -g serve
+RUN npm install
 
 COPY . .
 #RUN npm update
